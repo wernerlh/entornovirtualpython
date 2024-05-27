@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <!-- Incluye Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Incluye i18next y el detector de idioma -->
+  <script src="https://unpkg.com/i18next@21.6.3/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-browser-languagedetector@6.1.2/i18nextBrowserLanguageDetector.min.js"></script>
+</head>
+<body class="bg-black text-white flex items-center justify-center min-h-screen">
+
+  <!-- Contenedor principal -->
+  <div class="text-center">
+    <h1 id="greeting" class="text-4xl font-bold"></h1>
+  </div>
+
+  <script>
+    // Inicializa i18next
+    i18next.use(i18nextBrowserLanguageDetector).init({
+      resources: {
+        en: {
+          translation: {
+            "greeting": "Hello World"
+          }
+        },
+        es: {
+          translation: {
+            "greeting": "Hola Mundo"
+          }
+        },
+        fr: {
+          translation: {
+            "greeting": "Bonjour le monde"
+          }
+        }
+      },
+      fallbackLng: 'en',
+      debug: true
+    }, function(err, t) {
+      // Actualiza el contenido de la página
+      document.getElementById('greeting').textContent = i18next.t('greeting');
+    });
+  </script>
+</body>
+</html>
