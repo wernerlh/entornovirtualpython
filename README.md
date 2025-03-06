@@ -20,6 +20,12 @@ En caso de error, establece la política de ejecución:
 Set-ExecutionPolicy RemoteSigned -Scope Process
 ```
 
+Para verificar:
+
+```powershell
+Get-ExecutionPolicy
+```
+
 En macOS/Linux:
 
 ```bash
